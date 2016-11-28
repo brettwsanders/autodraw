@@ -13,13 +13,17 @@ console.log('the height is', height);
 
 // define array of colors to use to create painting
 var colors = ['blue', 'yellow', 'red'];
-
+var colorsLen = colors.length;
 
 // for each pixel in the height of the page
 //    get a random color (from the array)
 //    paint a bar horizontally in that color
 
-var lineEl = document.createElement("DIV");
-lineEl.setAttribute("style", "height: 1px; background-color: blue;");
-body.appendChild(lineEl);
+for (var i = 0; i < height; i++) {
+  var lineEl = document.createElement("DIV");
+  var color = colors[Math.floor(Math.random() * colorsLen)];
+  var styleStr = 'height: 1px; background-color: ' + color + ';';
+  lineEl.setAttribute("style", styleStr);
+  body.appendChild(lineEl);
+}
 
